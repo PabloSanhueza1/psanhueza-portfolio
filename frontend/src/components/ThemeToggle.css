@@ -1,0 +1,74 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 92px;
+  height: 44px;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f4f7fb, #ffffff);
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.slider .icon {
+  font-size: 18px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f59e0b;
+  transition: transform 0.25s ease, opacity 0.18s ease;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.12);
+  transition: transform 0.28s cubic-bezier(.2, .8, .2, 1), background 0.25s ease;
+  z-index: 2;
+}
+
+.switch input:checked+.slider {
+  background: linear-gradient(90deg, rgba(96, 165, 250, 0.95), rgba(37, 99, 235, 0.95));
+}
+
+.switch input:checked+.slider::before {
+  transform: translateX(46px);
+}
+
+.switch input:checked+.slider .icon.sun {
+  opacity: 0;
+  transform: scale(.9);
+}
+
+.switch input:not(:checked)+.slider .icon.moon {
+  opacity: 0;
+  transform: scale(.9);
+}
+
+.slider .icon.moon {
+  color: #93c5fd;
+  /* moon tint when visible */
+}
