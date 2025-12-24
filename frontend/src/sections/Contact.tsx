@@ -6,22 +6,42 @@ const Contact = () => {
     const [formData, setFormData] = useState({ email: "", message: "" });
     const [status, setStatus] = useState("");
 
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus("Enviando...");
-        // Tu lógica de envío aquí
-    };
 
+        try {
+            const response = await fetch(`${API_URL}/api/contact`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setStatus("¡Mensaje enviado con éxito! Te responderé pronto.");
+                setFormData({ email: "", message: "" });
+            } else {
+                setStatus("Error en el servidor. Inténtalo de nuevo.");
+            }
+        } catch (error) {
+            console.error("Error de conexión:", error);
+            setStatus("No se pudo conectar con el servidor. Revisa tu conexión.");
+        }
+    };
     return (
         <section id="contacto" className="contact-section">
             <div className="container contact-grid">
-                
+
                 <div className="contact-info">
                     <h1 className="contact-title">Contacto</h1>
                     <p className="contact-subtitle">
                         Puedes encontrarme en mis redes y canales oficiales:
                     </p>
-                    
+
                     <div className="contact-list">
                         <div className="contact-card">
                             <span className="icon-wrapper"><FaEnvelope /></span>
