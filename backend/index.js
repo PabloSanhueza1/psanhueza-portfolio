@@ -16,6 +16,10 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+app.get('/', (req, res) => {
+    res.send('Servidor del Portafolio de Pablo: Operativo');
+});
+
 app.post('/api/contact', async (req, res) => {
     const { email, message } = req.body;
 
