@@ -129,7 +129,6 @@
   color: #94a3b8;
 }
 
-/* Placeholders de Imagen Mejorados */
 .img-placeholder-container {
   display: flex;
   flex-direction: column;
@@ -140,11 +139,9 @@
   background-color: #f1f5f9;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-  overflow: hidden; /* Importante para que la imagen no se salga */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Eliminado el padding excesivo para que la imagen se vea grande */
   padding: 0; 
   position: relative;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);

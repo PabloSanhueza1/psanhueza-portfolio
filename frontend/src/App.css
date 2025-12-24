@@ -15,10 +15,8 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Soft blue watercolor-like background blobs */
 .app-container {
   position: relative;
-  overflow: hidden;
 }
 
 .app-container::before,
@@ -63,6 +61,10 @@
   padding: 0;
 }
 
+main {
+  padding-top: 80px; 
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -74,7 +76,6 @@ body {
   .container {
     padding: 2.5rem 0;
   }
-
 }
 
 @media (min-width: 1440px) {
