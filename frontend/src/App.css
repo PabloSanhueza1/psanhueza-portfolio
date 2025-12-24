@@ -1,17 +1,13 @@
-:root {
+.app-container {
   --bg-color: #ffffff;
   --text-color: #1a1a1a;
   --accent-color: #3b82f6;
+  --muted-text: #555555;
+  --nav-bg: rgba(255, 255, 255, 0.98);
+  --nav-bg-desktop: rgba(255, 255, 255, 0.8);
   margin: 0;
   padding: 0;
 }
-
-.app-container.dark {
-  --bg-color: #121212;
-  --text-color: #f8fafc;
-  --accent-color: #60a5fa;
-}
-
 .app-container {
   background-color: var(--bg-color);
   color: var(--text-color);

@@ -1,8 +1,175 @@
-.contact {
+/* Definición de variables y fuente única */
+:root {
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Colores Fijos (Modo Claro) */
+  --bg-section: #f8faff;
+  --bg-card: #ffffff;
+  --text-main: #1a1a1a;
+  --text-muted: #555555;
+  --text-input: #1a1a1a;
+  --placeholder: #999999;
+  --border-color: #e0e0e0;
+  --primary-blue: #4285f4;
+  --btn-hover: #3367d6;
+  --shadow: rgba(0, 0, 0, 0.06);
+}
+
+.contact-section {
+  font-family: var(--font-main);
+  padding: 40px 20px; /* Reducido para eliminar espacio innecesario */
+  background-color: var(--bg-section);
+  transition: background-color 0.3s ease;
+  min-height: auto; /* Ya no forzamos 100vh */
+  display: flex;
+  align-items: flex-start; /* Alinear al inicio para evitar centrado vertical */
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px; /* Leve reducción del gap para compactar */
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Columna de Información */
+.contact-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.contact-list {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1.2rem;
+}
+
+.contact-card {
+  display: flex;
   align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  color: var(--primary-blue);
+  transition: transform 0.2s;
+}
+
+.contact-card:hover {
+  transform: translateX(8px);
+}
+
+.icon-wrapper {
+  font-size: 1.2rem;
+  display: flex;
+  color: var(--text-main); 
+}
+
+.contact-card a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+/* Formulario */
+.contact-form-container {
+  width: 100%;
+}
+
+.form-helper-text {
+  margin-bottom: 1.5rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.main-form {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 28px;
+  box-shadow: 0 20px 50px var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.main-form input, 
+.main-form textarea {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  color: var(--text-input);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.main-form input::placeholder,
+.main-form textarea::placeholder {
+  color: var(--placeholder);
+}
+
+.main-form input:focus, 
+.main-form textarea:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.15);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 18px;
+  background-color: var(--primary-blue);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: var(--btn-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(66, 133, 244, 0.2);
+}
+
+.status-text {
+  margin-top: 15px;
   text-align: center;
-  min-height: 80vh;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Responsividad */
+@media (max-width: 968px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 0 10px;
+  }
+  .contact-info {
+    text-align: center;
+  }
+  .contact-list {
+    align-items: center;
+  }
+  .main-form {
+    padding: 30px 20px;
+  }
 }
